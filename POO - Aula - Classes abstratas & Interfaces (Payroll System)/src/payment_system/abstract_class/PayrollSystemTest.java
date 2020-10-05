@@ -35,10 +35,10 @@ public class PayrollSystemTest {
     
     System.out.println("Employees processed polymorphically:\n");
 
-    // Genericamente process cada elemento do array
-    
+    // Genericamente processando cada elemento do array    
     for (int i = 0; i < employees.length; i++) {
         Employee e = employees[i];
+        
         System.out.println(e.earnings());
     }
     
