@@ -1,6 +1,6 @@
 package exemplos.classes_abstratas.shapes;
 
-public class MainClass {
+public class MainClassArray {
 
 	public static void main(String[] args) {
 		Shape shapeAr[] = new Shape[] {
@@ -16,6 +16,7 @@ public class MainClass {
 		for (Shape x : shapeAr) {
 			System.out.println("Nome: " + x.nome 
 					         + "Área: " + x.calculateArea());
+			
 			if (x instanceof ThreeDimensionsShape) {
 				System.out.println("    Volume: " 
 						+ ((ThreeDimensionsShape) x).calculateVolume());
