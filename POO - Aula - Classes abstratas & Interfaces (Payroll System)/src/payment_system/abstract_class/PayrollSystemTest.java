@@ -1,7 +1,7 @@
 package payment_system.abstract_class;
 public class PayrollSystemTest {
   
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     
     // Criando objetos das subclasses
     SalariedEmployee salariedEmployee = 
@@ -24,10 +24,10 @@ public class PayrollSystemTest {
     System.out.printf("%s\n%s: $%,.2f\n\n", basePlusCommissionEmployee,
         "earned", basePlusCommissionEmployee.earnings());
 
-    // Criando um array de Employee de quatro posições
-    Employee employees[] = new Employee[4];
+    // Criando um array de Employee de quatro posiÃ§Ãµes
+    Employee[] employees = new Employee[4];
 
-    // Inicializando cada posição do array com os objetos criados
+    // Inicializando cada posiÃ§Ã£o do array com os objetos criados
     employees[0] = salariedEmployee;
     employees[1] = hourlyEmployee;
     employees[2] = commissionEmployee;
@@ -36,25 +36,23 @@ public class PayrollSystemTest {
     System.out.println("Employees processed polymorphically:\n");
 
     // Genericamente processando cada elemento do array    
-    for (int i = 0; i < employees.length; i++) {
-        Employee e = employees[i];
-        
-        System.out.println(e.earnings());
+    for (Employee e : employees) {
+      System.out.println(e.earnings());
     }
     
     for (Employee currentEmployee : employees) {
-      // Invoca implicitamente o método toString
+      // Invoca implicitamente o mÃ©todo toString
       System.out.println(currentEmployee); 
       
-      // Determina qual elemento é um BasePlusCommissionEmployee
+      // Determina qual elemento Ã© um BasePlusCommissionEmployee
       if (currentEmployee instanceof BasePlusCommissionEmployee) {
-        // Faz um cast para uma referência de tipo menor (BasePlusCommissionEmployee)
+        // Faz um cast para uma referÃªncia de tipo menor (BasePlusCommissionEmployee)
         BasePlusCommissionEmployee employee = (BasePlusCommissionEmployee) currentEmployee;
 
         double oldBaseSalary = employee.getBaseSalary();
         employee.setBaseSalary(1.10 * oldBaseSalary);
         System.out.printf("new base salary with 10%% increase is: $%,.2f\n",
-            employee.getBaseSalary());
+                employee.getBaseSalary());
       }
 
       System.out.printf("earned $%,.2f\n\n", currentEmployee.earnings());
